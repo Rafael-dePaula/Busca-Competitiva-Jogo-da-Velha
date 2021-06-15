@@ -114,7 +114,6 @@ const atualizarhtml = function () {
       i++;
     }
   });
-  ganhador(tabuleiro)
 }
 
 var tabuleiro =
