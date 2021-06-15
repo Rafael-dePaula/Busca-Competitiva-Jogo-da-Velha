@@ -149,6 +149,8 @@ jdvelha.addEventListener("click", (event) => {
   ///Jogada IA
   if(!jxj && !final(tabuleiro)) tabuleiro = jogadaIA(tabuleiro)
   atualizarhtml()
+  
+  ganhador(tabuleiro)
 })
 checkbox.addEventListener( 'change', function() {
   if(this.checked) {
