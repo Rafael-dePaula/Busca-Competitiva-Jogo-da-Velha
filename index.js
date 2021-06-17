@@ -36,23 +36,21 @@ const final = function (tabuleiro) {
 }
 //Retorna 1 se X ganhou, -1 se O ganhou, 0 caso contrário.
 const custo = function (tabuleiro) {
-  for (let i = 0; i < tabuleiro.length; i++)
-    for (let j = 0; j < tabuleiro[i].length; j++) {
-      let sum_linha = 0, sum_coluna = 0, sum_diagonal = 0, sum_diagonal2 = 0
+  for (let i = 0; i < tabuleiro.length; i++){
       ///Linhas e Colunas
+      let sum_linha = 0, sum_coluna = 0 
       sum_linha = tabuleiro[i][0] + tabuleiro[i][1] + tabuleiro[i][2]
       sum_coluna = tabuleiro[0][i] + tabuleiro[1][i] + tabuleiro[2][i]
-      ///Diagonais
-      if (i === j)
-        sum_diagonal = tabuleiro[0][0] + tabuleiro[1][1] + tabuleiro[2][2]
-      if (i === j && i === 1 || Math.abs(i - j) === 2)
-        sum_diagonal2 = tabuleiro[0][2] + tabuleiro[1][1] + tabuleiro[2][0]
-
+      
       if (Math.abs(sum_linha) === 3) return sum_linha / 3
       if (Math.abs(sum_coluna) === 3) return sum_coluna / 3
-      if (Math.abs(sum_diagonal) === 3) return sum_diagonal / 3
-      if (Math.abs(sum_diagonal2) === 3) return sum_diagonal2 / 3
     }
+    ///Diagonais   
+    let sum_diagonal = tabuleiro[0][0] + tabuleiro[1][1] + tabuleiro[2][2]
+    if (Math.abs(sum_diagonal) === 3) return sum_diagonal / 3
+    sum_diagonal = tabuleiro[0][2] + tabuleiro[1][1] + tabuleiro[2][0]
+    if (Math.abs(sum_diagonal) === 3) return sum_diagonal / 3
+    
   return 0
 }
 //Retorna a jogada ótima para o jogador atual
